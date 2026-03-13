@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 80">
+  <!-- Ag in Orange -->
+  <text x="10" y="45" font-family="Lato, sans-serif" font-size="36" font-weight="400" fill="#f8981d">Ag</text>
+  <!-- îl in Schwarz -->
+  <text x="65" y="45" font-family="Lato, sans-serif" font-size="36" font-weight="400" fill="#050708">îl</text>
+  <!-- Consultants in Schwarz -->
+  <text x="95" y="45" font-family="Lato, sans-serif" font-size="36" font-weight="400" fill="#050708">Consultants</text>
+  <!-- Orangener Schwung darunter -->
+  <path d="M 15 55 Q 75 70 140 55" stroke="#f8981d" stroke-width="3" fill="none" stroke-linecap="round"/>
+</svg>
