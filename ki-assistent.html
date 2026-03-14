@@ -33,7 +33,7 @@ NIS2: Seit 06.12.2025 in Kraft, nur 11.500 von 29.850 registriert, Bussgeld bis 
 
 EU AI Act: Art.4 Schulungspflicht JETZT. August 2026 Hochrisiko-Systeme.
 
-Antworte OHNE Markdown: kein **fett**, kein *kursiv*, keine # Ueberschriften. Nutze Bindestriche fuer Listen.`;
+Antworte OHNE jegliche Markdown-Formatierung. Kein **fett**, kein *kursiv*, keine # Ueberschriften, keine ## Ueberschriften, keine ### Ueberschriften. Schreibe nur in normalem Fliesstext mit einfachen Bindestrichen fuer Listen.`;
 
 const QS=[
   {i:"👁️",l:"Shadow AI. Sichtbar gemacht.",m:"Unsere Mitarbeiter nutzen KI-Tools die wir nicht freigegeben haben. Wie finde ich das heraus?"},
@@ -45,6 +45,7 @@ const QS=[
 
 function fmt(t){
   return t
+    .replace(/^### (.*?)$/gm,"<b>$1</b>")
     .replace(/^## (.*?)$/gm,"<b>$1</b>")
     .replace(/^# (.*?)$/gm,"<b>$1</b>")
     .replace(/\*\*(.*?)\*\*/g,"<b>$1</b>")
