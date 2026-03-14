@@ -1,22 +1,193 @@
-<!DOCTYPE html><html lang="de"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/><title>KI-Compliance Assistent - AgilConsultants</title><script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script><style>*{box-sizing:border-box;margin:0;padding:0}body{background:#0a0a0a;font-family:'Helvetica Neue',Arial,sans-serif;color:#fff}@keyframes bounce{0%,80%,100%{transform:translateY(0)}40%{transform:translateY(-5px)}}@keyframes fadeUp{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}textarea{scrollbar-width:thin;color-scheme:dark}.msg-content b{font-weight:700}.msg-content i{font-style:italic}</style></head><body><div id="root"></div><script>
-var PROXY_URL="https://bouquet-dale-realized-now.trycloudflare.com/chat",TEAL="#00a19a",ORANGE="#f7941d";
-var SYS="Du bist der KI-Compliance-Assistent von AgilConsultants UG (Christian Honl, Bad Homburg). Beraetst GF und Compliance-Verantwortliche in deutschen KMU. Wissensstand Maerz 2026.\n\nSHADOW AI: Bitkom Okt 2025 n=604: 8% weit verbreitet, 17% Einzelfaelle. ZEW 2025 n=369.000: 56% KMU eigenverantwortlich. Microsoft/Civey: 45% Bundesbehoerden. IBM: 4,63 Mio USD.\n\nDSGVO: ChatGPT Free/Plus verboten kein AVV. ChatGPT Enterprise: CLOUD Act Risiko. Copilot: DPA 01.09.2025 zwingend, DLP-Bug CW1226324. DeepSeek rechtswidrig. Langdock empfohlen. Par87 BetrVG: Betriebsrat VOR Einfuehrung.\n\nPar43e BRAO: Moeglichkeitsprinzip, ChatGPT fuer Mandatsdaten verboten, 3-Dokumente-Pflicht.\n\nNIS2: In Kraft 06.12.2025, 11.500 von 29.850 registriert, Bussgeld 500.000 Euro, GF-Haftung.\n\nEU AI ACT: Art.4 Schulungspflicht JETZT. Aug 2026 Hochrisiko. Digital Omnibus nicht beschlossen.\n\nBAFA: 50% max 1.750 Euro alte Bundeslaender bis 31.12.2026.\n\nAntworte OHNE Markdown: kein **fett**, kein *kursiv*, keine # Ueberschriften. Nur Bindestriche fuer Listen.";
-var QS=[{i:"\uD83D\uDC41\uFE0F",l:"Shadow AI. Sichtbar gemacht.",m:"Unsere Mitarbeiter nutzen KI-Tools die wir nicht freigegeben haben. Wie finde ich das heraus?"},{i:"\u26A1",l:"Copilot. Richtig eingef\u00FChrt.",m:"Wir haben Microsoft 365 und \u00FCberlegen Copilot einzuf\u00FChren. Was m\u00FCssen wir beachten?"},{i:"\u2696\uFE0F",l:"EU AI Act. Bevor er Sie trifft.",m:"Was bedeutet der EU AI Act f\u00FCr mein KMU?"},{i:"\uD83D\uDD12",l:"NIS2 \u2014 bin ich betroffen?",m:"Bin ich von NIS2 betroffen und was passiert wenn ich die Frist verpasst habe?"},{i:"\uD83D\uDCCB",l:"Kanzlei & KI \u2014 \u00A743e BRAO",m:"Ich leite eine Anwaltskanzlei. D\u00FCrfen wir ChatGPT f\u00FCr Mandatsarbeit nutzen?"}];
-function fmt(t){return t.replace(/^## (.*?)$/gm,"<b>$1</b>").replace(/^# (.*?)$/gm,"<b>$1</b>").replace(/\*\*(.*?)\*\*/g,"<b>$1</b>").replace(/\*(.*?)\*/g,"<i>$1</i>").replace(/^- /gm,"\u2022 ").replace(/\n/g,"<br/>");}
-var E=React.createElement;
-function App(){var sm=React.useState([]),msgs=sm[0],setMsgs=sm[1],si=React.useState(""),inp=si[0],setInp=si[1],sl=React.useState(false),load=sl[0],setLoad=sl[1],ss=React.useState(false),started=ss[0],setStarted=ss[1],bot=React.useRef(null),ta=React.useRef(null);
-React.useEffect(function(){if(bot.current)bot.current.scrollIntoView({behavior:"smooth"});},[msgs,load]);
-React.useEffect(function(){if(ta.current){ta.current.style.height="auto";ta.current.style.height=Math.min(ta.current.scrollHeight,120)+"px";}},[inp]);
-function send(txt){var t=txt.trim();if(!t||load)return;var up=msgs.concat([{role:"user",content:t}]);setMsgs(up);setInp("");setLoad(true);setStarted(true);fetch(PROXY_URL,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({system:SYS,messages:up})}).then(function(r){return r.json();}).then(function(d){var rep=(d.content&&d.content[0]&&d.content[0].text)||"Fehler.";setMsgs(function(p){return p.concat([{role:"assistant",content:rep}]);});setLoad(false);}).catch(function(){setMsgs(function(p){return p.concat([{role:"assistant",content:"Verbindungsfehler."}]);});setLoad(false);});}
-function IB(mb){return E("div",{style:{background:"#141414",border:"1px solid #2a2a2a",borderRadius:10,padding:"10px 12px 10px 16px",display:"flex",gap:10,alignItems:"flex-end",marginBottom:mb}},E("textarea",{ref:ta,value:inp,onChange:function(ev){setInp(ev.target.value);},onKeyDown:function(ev){if(ev.key==="Enter"&&!ev.shiftKey){ev.preventDefault();send(inp);}},placeholder:started?"Weitere Frage...":"Ihre Frage zu KI, DSGVO, NIS2 oder EU AI Act...",rows:1,style:{flex:1,border:"none",background:"transparent",fontSize:14,resize:"none",outline:"none",color:"#fff",fontFamily:"inherit",maxHeight:120}}),E("button",{onClick:function(){send(inp);},disabled:!inp.trim()||load,style:{background:inp.trim()&&!load?ORANGE:"#2a2a2a",border:"none",borderRadius:6,width:36,height:36,cursor:"pointer",display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}},E("svg",{width:15,height:15,viewBox:"0 0 16 16",fill:"none"},E("path",{d:"M2 8L14 8M14 8L9 3M14 8L9 13",stroke:"white",strokeWidth:"2.2",strokeLinecap:"round",strokeLinejoin:"round"}))));}
-return E("div",{style:{background:"#0a0a0a",minHeight:"100vh",display:"flex",flexDirection:"column",maxWidth:720,margin:"0 auto"}},
-E("div",{style:{borderBottom:"1px solid #1a1a1a",padding:"16px 24px",display:"flex",alignItems:"center",justifyContent:"space-between",position:"sticky",top:0,background:"#0a0a0a",zIndex:10}},E("a",{href:"/",style:{textDecoration:"none",fontWeight:900,fontSize:16}},E("span",{style:{color:TEAL}},"Ag\u00EEl"),E("span",{style:{color:ORANGE}},"Consultants")),E("a",{href:"mailto:info@agilconsultants.com",style:{background:ORANGE,color:"#fff",fontSize:12,fontWeight:700,padding:"8px 16px",borderRadius:6,textDecoration:"none"}},"Erstgespr\u00E4ch \u2192")),
-E("div",{style:{flex:1,overflowY:"auto",padding:"24px 20px 8px"}},
-!started&&E("div",null,E("div",{style:{marginBottom:24}},E("div",{style:{fontSize:11,fontWeight:700,letterSpacing:"2px",color:TEAL,textTransform:"uppercase",marginBottom:12}},"KI-COMPLIANCE ASSISTENT"),E("h1",{style:{fontSize:"clamp(22px,5vw,34px)",fontWeight:900,lineHeight:1.15,letterSpacing:"-1px",marginBottom:10}},"Stellen Sie mir Ihre KI-Frage."),E("p",{style:{fontSize:15,color:"#888",lineHeight:1.65,marginBottom:6}},"Kostenlos. Anonym. Sofortige Antwort."),E("p",{style:{fontSize:13,color:"#555",lineHeight:1.6,maxWidth:500}},"Ich beantworte Fragen zu Shadow AI, DSGVO, EU AI Act, NIS2 und Copilot \u2014 auf Basis verifizierter Prim\u00E4rquellen.")),IB(28),E("div",{style:{fontSize:11,fontWeight:700,letterSpacing:"1.5px",color:"#444",textTransform:"uppercase",marginBottom:12}},"Oder w\u00E4hlen Sie ein Thema:"),E("div",{style:{display:"flex",flexDirection:"column",gap:0,marginBottom:24}},QS.map(function(q,i){return E("button",{key:i,onClick:function(){send(q.m);},style:{background:"transparent",border:"none",borderBottom:"1px solid #1a1a1a",padding:"16px 0",textAlign:"left",cursor:"pointer",display:"flex",alignItems:"center",gap:16,width:"100%"},onMouseEnter:function(ev){ev.currentTarget.style.paddingLeft="8px";},onMouseLeave:function(ev){ev.currentTarget.style.paddingLeft="0";}},E("span",{style:{fontSize:18,flexShrink:0}},q.i),E("span",{style:{fontWeight:700,fontSize:15,color:"#fff"}},q.l),E("span",{style:{marginLeft:"auto",color:ORANGE,fontSize:18}},"\u2192"));})),E("div",{style:{fontSize:11,color:"#333"}},"HBDI \u00B7 BRAK \u00B7 BSI \u00B7 ZEW")),
-msgs.map(function(m,i){return E("div",{key:i,style:{display:"flex",justifyContent:m.role==="user"?"flex-end":"flex-start",marginBottom:16}},m.role==="assistant"&&E("div",{style:{width:28,height:28,background:TEAL,borderRadius:6,display:"flex",alignItems:"center",justifyContent:"center",fontSize:13,marginRight:8,flexShrink:0,marginTop:2}},"\uD83D\uDEE1\uFE0F"),E("div",{className:"msg-content",style:{maxWidth:"82%",background:m.role==="user"?TEAL:"#141414",color:"#fff",borderRadius:m.role==="user"?"12px 12px 2px 12px":"2px 12px 12px 12px",padding:"11px 15px",fontSize:14,lineHeight:1.7,border:m.role==="assistant"?"1px solid #222":"none",wordBreak:"break-word"},dangerouslySetInnerHTML:{__html:fmt(m.content)}});}),
-load&&E("div",{style:{display:"flex",alignItems:"center",gap:9,marginBottom:16}},E("div",{style:{width:28,height:28,background:TEAL,borderRadius:6,display:"flex",alignItems:"center",justifyContent:"center",fontSize:13}},"\uD83D\uDEE1\uFE0F"),E("div",{style:{background:"#141414",border:"1px solid #222",borderRadius:"2px 12px 12px 12px",padding:"12px 16px",display:"flex",gap:5}},[0,1,2].map(function(j){return E("div",{key:j,style:{width:7,height:7,borderRadius:"50%",background:TEAL,animation:"bounce 1.1s ease-in-out infinite",animationDelay:j*0.18+"s"}});}))),
-msgs.length>=2&&!load&&E("div",{style:{borderTop:"2px solid "+ORANGE,padding:"18px 0",marginTop:8,display:"flex",alignItems:"center",justifyContent:"space-between",gap:16}},E("div",null,E("div",{style:{fontWeight:800,fontSize:14,marginBottom:4}},"Konkrete Situation besprechen?"),E("div",{style:{fontSize:13,color:"#666"}},"30 Min. kostenloses Erstgespr\u00E4ch")),E("a",{href:"mailto:info@agilconsultants.com",style:{background:ORANGE,color:"#fff",fontSize:13,fontWeight:700,padding:"10px 18px",borderRadius:6,textDecoration:"none",whiteSpace:"nowrap",flexShrink:0}},"Jetzt anfragen")),
-E("div",{ref:bot})),
-started&&E("div",{style:{borderTop:"1px solid #1a1a1a",padding:"12px 20px 16px",background:"#0a0a0a",position:"sticky",bottom:0}},IB(0),E("div",{style:{textAlign:"center",fontSize:11,color:"#333",marginTop:8}},"KI kann Fehler machen \u00B7 ",E("a",{href:"mailto:info@agilconsultants.com",style:{color:"#555",textDecoration:"none"}},"info@agilconsultants.com"))));}
-ReactDOM.createRoot(document.getElementById("root")).render(React.createElement(App));
-</script><style>@keyframes bounce{0%,80%,100%{transform:translateY(0)}40%{transform:translateY(-5px)}}@keyframes fadeUp{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}</style></body></html>
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KI-Compliance Assistent - AgilConsultants</title>
+<script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0a0a0a;font-family:'Helvetica Neue',Arial,sans-serif;color:#fff;line-height:1.6}
+@keyframes bounce{0%,80%,100%{transform:translateY(0)}40%{transform:translateY(-5px)}}
+textarea{scrollbar-width:thin;color-scheme:dark;font-family:inherit}
+.msg-content b{font-weight:700}
+.msg-content i{font-style:italic}
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script>
+const PROXY_URL="https://bouquet-dale-realized-now.trycloudflare.com/chat";
+const TEAL="#00a19a", ORANGE="#f7941d";
+
+const SYS=`Du bist der KI-Compliance-Assistent von AgilConsultants UG. Berate GF und Compliance-Verantwortliche in deutschen KMU. Wissensstand Maerz 2026.
+
+Shadow AI: Bitkom Okt 2025 (8% weit verbreitet, 17% Einzelfaelle). ZEW 2025: 56% KMU eigenverantwortlich.
+
+DSGVO: ChatGPT Free/Plus verboten (kein AVV). ChatGPT Enterprise: CLOUD Act Risiko. Copilot: DPA 01.09.2025 zwingend. DeepSeek rechtswidrig. Langdock empfohlen. Par87 BetrVG: Betriebsrat VOR Einfuehrung.
+
+Par43e BRAO: Moeglichkeitsprinzip, ChatGPT fuer Mandatsdaten verboten, 3-Dokumente-Pflicht.
+
+NIS2: Seit 06.12.2025 in Kraft, nur 11.500 von 29.850 registriert, Bussgeld bis 500.000 Euro.
+
+EU AI Act: Art.4 Schulungspflicht JETZT. August 2026 Hochrisiko-Systeme.
+
+Antworte OHNE Markdown: kein **fett**, kein *kursiv*, keine # Ueberschriften. Nutze Bindestriche fuer Listen.`;
+
+const QS=[
+  {i:"👁️",l:"Shadow AI. Sichtbar gemacht.",m:"Unsere Mitarbeiter nutzen KI-Tools die wir nicht freigegeben haben. Wie finde ich das heraus?"},
+  {i:"⚡",l:"Copilot. Richtig eingeführt.",m:"Wir haben Microsoft 365 und überlegen Copilot einzuführen. Was müssen wir beachten?"},
+  {i:"⚖️",l:"EU AI Act. Bevor er Sie trifft.",m:"Was bedeutet der EU AI Act für mein KMU?"},
+  {i:"🔒",l:"NIS2 — bin ich betroffen?",m:"Bin ich von NIS2 betroffen und was passiert wenn ich die Frist verpasst habe?"},
+  {i:"📋",l:"Kanzlei & KI — §43e BRAO",m:"Ich leite eine Anwaltskanzlei. Dürfen wir ChatGPT für Mandatsarbeit nutzen?"}
+];
+
+function fmt(t){
+  return t
+    .replace(/^## (.*?)$/gm,"<b>$1</b>")
+    .replace(/^# (.*?)$/gm,"<b>$1</b>")
+    .replace(/\*\*(.*?)\*\*/g,"<b>$1</b>")
+    .replace(/\*(.*?)\*/g,"<i>$1</i>")
+    .replace(/^- /gm,"• ")
+    .replace(/\n/g,"<br>");
+}
+
+function InputBox({value,onChange,onSend,started,load,taRef}){
+  return React.createElement('div',{
+    style:{
+      background:'#141414',border:'1px solid #2a2a2a',borderRadius:10,
+      padding:'10px 12px 10px 16px',display:'flex',gap:10,alignItems:'flex-end'
+    }
+  },
+    React.createElement('textarea',{
+      ref:taRef,
+      value:value,
+      onChange:onChange,
+      onKeyDown:(e)=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();onSend();}},
+      placeholder:started?'Weitere Frage...':'Ihre Frage zu KI, DSGVO, NIS2 oder EU AI Act...',
+      rows:1,
+      style:{flex:1,border:'none',background:'transparent',fontSize:14,resize:'none',outline:'none',color:'#fff',maxHeight:120}
+    }),
+    React.createElement('button',{
+      onClick:onSend,
+      disabled:!value.trim()||load,
+      style:{
+        background:value.trim()&&!load?ORANGE:'#2a2a2a',border:'none',borderRadius:6,
+        width:36,height:36,cursor:'pointer',display:'flex',alignItems:'center',justifyContent:'center'
+      }
+    },React.createElement('svg',{width:15,height:15,viewBox:'0 0 16 16',fill:'none'},
+      React.createElement('path',{d:'M2 8L14 8M14 8L9 3M14 8L9 13',stroke:'white',strokeWidth:'2.2',strokeLinecap:'round',strokeLinejoin:'round'})
+    ))
+  );
+}
+
+function App(){
+  const [msgs,setMsgs]=React.useState([]);
+  const [inp,setInp]=React.useState('');
+  const [load,setLoad]=React.useState(false);
+  const [started,setStarted]=React.useState(false);
+  const botRef=React.useRef(null);
+  const taRef=React.useRef(null);
+
+  React.useEffect(()=>{
+    if(botRef.current)botRef.current.scrollIntoView({behavior:'smooth'});
+  },[msgs,load]);
+
+  React.useEffect(()=>{
+    if(taRef.current){
+      taRef.current.style.height='auto';
+      taRef.current.style.height=Math.min(taRef.current.scrollHeight,120)+'px';
+    }
+  },[inp]);
+
+  const send=async(txt)=>{
+    const t=txt||inp;
+    const trimmed=t.trim();
+    if(!trimmed||load)return;
+    const up=[...msgs,{role:'user',content:trimmed}];
+    setMsgs(up);
+    setInp('');
+    setLoad(true);
+    setStarted(true);
+    try{
+      const r=await fetch(PROXY_URL,{
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({system:SYS,messages:up})
+      });
+      const d=await r.json();
+      const text=d.content?.[0]?.text||'Fehler.';
+      setMsgs(p=>[...p,{role:'assistant',content:text}]);
+    }catch(e){
+      setMsgs(p=>[...p,{role:'assistant',content:'Verbindungsfehler.'}]);
+    }
+    setLoad(false);
+  };
+
+  const E=React.createElement;
+
+  return E('div',{style:{background:'#0a0a0a',minHeight:'100vh',display:'flex',flexDirection:'column',maxWidth:720,margin:'0 auto'}},
+    // Header
+    E('div',{style:{borderBottom:'1px solid #1a1a1a',padding:'16px 24px',display:'flex',alignItems:'center',justifyContent:'space-between',position:'sticky',top:0,background:'#0a0a0a',zIndex:10}},
+      E('a',{href:'/',style:{textDecoration:'none',fontWeight:900,fontSize:16}},
+        E('span',{style:{color:TEAL}},'Agîl'),E('span',{style:{color:ORANGE}},'Consultants')),
+      E('a',{href:'mailto:info@agilconsultants.com',style:{background:ORANGE,color:'#fff',fontSize:12,fontWeight:700,padding:'8px 16px',borderRadius:6,textDecoration:'none'}},'Erstgespräch →')
+    ),
+    // Content
+    E('div',{style:{flex:1,overflowY:'auto',padding:'24px 20px 8px'}},
+      // Start view
+      !started&&E('div',null,
+        E('div',{style:{marginBottom:24}},
+          E('div',{style:{fontSize:11,fontWeight:700,letterSpacing:'2px',color:TEAL,textTransform:'uppercase',marginBottom:12}},'KI-COMPLIANCE ASSISTENT'),
+          E('h1',{style:{fontSize:'clamp(22px,5vw,34px)',fontWeight:900,lineHeight:1.15,letterSpacing:'-1px',marginBottom:10}},'Stellen Sie mir Ihre KI-Frage.'),
+          E('p',{style:{fontSize:15,color:'#888',lineHeight:1.65,marginBottom:6}},'Kostenlos. Anonym. Sofortige Antwort.'),
+          E('p',{style:{fontSize:13,color:'#555',lineHeight:1.6,maxWidth:500}},'Ich beantworte Fragen zu Shadow AI, DSGVO, EU AI Act, NIS2 und Copilot — auf Basis verifizierter Primärquellen.')
+        ),
+        E('div',{style:{marginBottom:28}},
+          React.createElement(InputBox,{value:inp,onChange:(e)=>setInp(e.target.value),onSend:()=>send(),started:false,load,taRef})
+        ),
+        E('div',{style:{fontSize:11,fontWeight:700,letterSpacing:'1.5px',color:'#444',textTransform:'uppercase',marginBottom:12}},'Oder wählen Sie ein Thema:'),
+        E('div',{style:{display:'flex',flexDirection:'column',gap:0,marginBottom:24}},
+          QS.map((q,i)=>E('button',{
+            key:i,
+            onClick:()=>send(q.m),
+            style:{background:'transparent',border:'none',borderBottom:'1px solid #1a1a1a',padding:'16px 0',textAlign:'left',cursor:'pointer',display:'flex',alignItems:'center',gap:16,width:'100%',transition:'padding-left 0.15s'},
+            onMouseEnter:(e)=>e.currentTarget.style.paddingLeft='8px',
+            onMouseLeave:(e)=>e.currentTarget.style.paddingLeft='0'
+          },E('span',{style:{fontSize:18}},q.i),E('span',{style:{fontWeight:700,fontSize:15,color:'#fff'}},q.l),E('span',{style:{marginLeft:'auto',color:ORANGE,fontSize:18}},'→')))
+        ),
+        E('div',{style:{fontSize:11,color:'#333'}},'HBDI · BRAK · BSI · ZEW')
+      ),
+      // Chat messages
+      msgs.map((m,i)=>E('div',{key:i,style:{display:'flex',justifyContent:m.role==='user'?'flex-end':'flex-start',marginBottom:16}},
+        m.role==='assistant'&&E('div',{style:{width:28,height:28,background:TEAL,borderRadius:6,display:'flex',alignItems:'center',justifyContent:'center',fontSize:13,marginRight:8,flexShrink:0,marginTop:2}},'🛡️'),
+        E('div',{className:'msg-content',style:{maxWidth:'82%',background:m.role==='user'?TEAL:'#141414',color:'#fff',borderRadius:m.role==='user'?'12px 12px 2px 12px':'2px 12px 12px 12px',padding:'11px 15px',fontSize:14,lineHeight:1.7,border:m.role==='assistant'?'1px solid #222':'none',wordBreak:'break-word'},dangerouslySetInnerHTML:{__html:fmt(m.content)}})
+      )),
+      // Loading
+      load&&E('div',{style:{display:'flex',alignItems:'center',gap:9,marginBottom:16}},
+        E('div',{style:{width:28,height:28,background:TEAL,borderRadius:6,display:'flex',alignItems:'center',justifyContent:'center',fontSize:13}},'🛡️'),
+        E('div',{style:{background:'#141414',border:'1px solid #222',borderRadius:'2px 12px 12px 12px',padding:'12px 16px',display:'flex',gap:5}},
+          [0,1,2].map(j=>E('div',{key:j,style:{width:7,height:7,borderRadius:'50%',background:TEAL,animation:'bounce 1.1s ease-in-out infinite',animationDelay:j*0.18+'s'}}))
+        )
+      ),
+      // CTA
+      msgs.length>=2&&!load&&E('div',{style:{borderTop:'2px solid '+ORANGE,padding:'18px 0',marginTop:8,display:'flex',alignItems:'center',justifyContent:'space-between',gap:16}},
+        E('div',null,E('div',{style:{fontWeight:800,fontSize:14,marginBottom:4}},'Konkrete Situation besprechen?'),E('div',{style:{fontSize:13,color:'#666'}},'30 Min. kostenloses Erstgespräch')),
+        E('a',{href:'mailto:info@agilconsultants.com',style:{background:ORANGE,color:'#fff',fontSize:13,fontWeight:700,padding:'10px 18px',borderRadius:6,textDecoration:'none',whiteSpace:'nowrap'}},'Jetzt anfragen')
+      ),
+      E('div',{ref:botRef})
+    ),
+    // Sticky input for chat mode
+    started&&E('div',{style:{borderTop:'1px solid #1a1a1a',padding:'12px 20px 16px',background:'#0a0a0a'}},
+      React.createElement(InputBox,{value:inp,onChange:(e)=>setInp(e.target.value),onSend:()=>send(),started:true,load,taRef}),
+      E('div',{style:{textAlign:'center',fontSize:11,color:'#333',marginTop:8}},'KI kann Fehler machen · ',E('a',{href:'mailto:info@agilconsultants.com',style:{color:'#555',textDecoration:'none'}},'info@agilconsultants.com'))
+    )
+  );
+}
+
+const root=ReactDOM.createRoot(document.getElementById('root'));
+root.render(React.createElement(App));
+</script>
+</body>
+</html>
