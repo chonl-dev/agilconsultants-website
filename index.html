@@ -50,9 +50,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 :root {
-  --teal: #F8981D;
-  --teal-dim: rgba(0,161,154,0.12);
-  --teal-glow: rgba(0,161,154,0.25);
+  --#F8981D: #F8981D;
+  --#F8981D-dim: rgba(0,161,154,0.12);
+  --#F8981D-glow: rgba(0,161,154,0.25);
   --orange: #F7941D;
   --orange-dim: rgba(247,148,29,0.12);
   --bg: #0D0F14;
@@ -110,7 +110,7 @@ nav {
   letter-spacing: -0.02em;
 }
 
-.nav-logo span { color: var(--teal); }
+.nav-logo span { color: var(--#F8981D); }
 
 .nav-links {
   display: flex;
@@ -130,7 +130,7 @@ nav {
 .nav-links a:hover { color: var(--text); }
 
 .nav-cta {
-  background: var(--teal);
+  background: var(--#F8981D);
   color: #fff !important;
   padding: 10px 22px;
   border-radius: 6px;
@@ -178,13 +178,13 @@ nav {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: var(--teal-dim);
+  background: var(--#F8981D-dim);
   border: 1px solid rgba(0,161,154,0.3);
   border-radius: 100px;
   padding: 6px 16px;
   font-size: 0.78rem;
   font-weight: 600;
-  color: var(--teal);
+  color: var(--#F8981D);
   letter-spacing: 0.08em;
   text-transform: uppercase;
   margin-bottom: 32px;
@@ -195,7 +195,7 @@ nav {
   content: '';
   width: 6px; height: 6px;
   border-radius: 50%;
-  background: var(--teal);
+  background: var(--#F8981D);
   animation: pulse 2s infinite;
 }
 
@@ -214,7 +214,7 @@ nav {
   animation: fadeUp 0.7s 0.1s ease both;
 }
 
-.hero h1 .accent { color: var(--teal); }
+.hero h1 .accent { color: var(--#F8981D); }
 .hero h1 .accent-o { color: var(--orange); }
 
 .hero-sub {
@@ -235,7 +235,7 @@ nav {
 }
 
 .btn-primary {
-  background: var(--teal);
+  background: var(--#F8981D);
   color: #fff;
   padding: 16px 36px;
   border-radius: 8px;
@@ -260,7 +260,7 @@ nav {
   transition: all 0.2s;
 }
 
-.btn-secondary:hover { border-color: var(--teal); color: var(--teal); }
+.btn-secondary:hover { border-color: var(--#F8981D); color: var(--#F8981D); }
 
 .hero-stats {
   position: absolute;
@@ -286,7 +286,7 @@ nav {
   font-family: 'Poppins', sans-serif;
   font-size: 2.2rem;
   font-weight: 800;
-  color: var(--teal);
+  color: var(--#F8981D);
   line-height: 1;
   margin-bottom: 4px;
 }
@@ -318,7 +318,7 @@ section { position: relative; }
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--teal);
+  color: var(--#F8981D);
   margin-bottom: 16px;
 }
 
@@ -440,7 +440,7 @@ section { position: relative; }
   position: absolute;
   bottom: 0; left: 0; right: 0;
   height: 2px;
-  background: linear-gradient(90deg, var(--teal), transparent);
+  background: linear-gradient(90deg, var(--#F8981D), transparent);
 }
 
 .case-client {
@@ -448,7 +448,7 @@ section { position: relative; }
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--teal);
+  color: var(--#F8981D);
   margin-bottom: 16px;
 }
 
@@ -493,7 +493,7 @@ section { position: relative; }
   position: absolute;
   left: 0; top: 8px; bottom: 8px;
   width: 2px;
-  background: linear-gradient(to bottom, var(--teal), var(--orange), var(--teal));
+  background: linear-gradient(to bottom, var(--#F8981D), var(--orange), var(--#F8981D));
 }
 
 .timeline-item {
@@ -507,15 +507,15 @@ section { position: relative; }
   left: -5px; top: 8px;
   width: 12px; height: 12px;
   border-radius: 50%;
-  background: var(--teal);
+  background: var(--#F8981D);
   border: 2px solid var(--bg2);
-  box-shadow: 0 0 0 3px var(--teal-glow);
+  box-shadow: 0 0 0 3px var(--#F8981D-glow);
 }
 
 .timeline-year {
   font-size: 0.75rem;
   font-weight: 700;
-  color: var(--teal);
+  color: var(--#F8981D);
   letter-spacing: 0.08em;
   margin-bottom: 8px;
 }
@@ -549,7 +549,7 @@ section { position: relative; }
   top: -20px; left: 24px;
   font-family: 'Poppins', sans-serif;
   font-size: 8rem;
-  color: var(--teal);
+  color: var(--#F8981D);
   opacity: 0.12;
   line-height: 1;
   pointer-events: none;
@@ -564,7 +564,7 @@ section { position: relative; }
   position: relative;
 }
 
-.ki-moment-text strong { color: var(--teal); }
+.ki-moment-text strong { color: var(--#F8981D); }
 
 /* ── LEISTUNGEN ── */
 .leistungen { background: var(--bg); }
@@ -600,8 +600,8 @@ section { position: relative; }
   font-size: 0.65rem;
   font-weight: 700;
   letter-spacing: 0.1em;
-  color: var(--teal);
-  background: var(--teal-dim);
+  color: var(--#F8981D);
+  background: var(--#F8981D-dim);
   border: 1px solid rgba(0,161,154,0.3);
   border-radius: 100px;
   padding: 3px 10px;
@@ -613,7 +613,7 @@ section { position: relative; }
   display: flex; align-items: center; justify-content: center;
   font-size: 1.3rem;
   margin-bottom: 20px;
-  background: var(--teal-dim);
+  background: var(--#F8981D-dim);
 }
 
 .paket-name {
@@ -627,7 +627,7 @@ section { position: relative; }
 .paket-price {
   font-size: 1.6rem;
   font-weight: 600;
-  color: var(--teal);
+  color: var(--#F8981D);
   margin-bottom: 16px;
   font-family: 'Poppins', sans-serif;
 }
@@ -653,7 +653,7 @@ section { position: relative; }
 
 .paket-features li::before {
   content: '✓';
-  color: var(--teal);
+  color: var(--#F8981D);
   font-weight: 700;
   flex-shrink: 0;
   margin-top: 1px;
@@ -662,14 +662,14 @@ section { position: relative; }
 .bafa-note {
   margin-top: 40px;
   padding: 20px 28px;
-  background: var(--teal-dim);
+  background: var(--#F8981D-dim);
   border: 1px solid rgba(0,161,154,0.2);
   border-radius: 10px;
   font-size: 0.9rem;
   color: var(--light);
 }
 
-.bafa-note strong { color: var(--teal); }
+.bafa-note strong { color: var(--#F8981D); }
 
 /* ── TESTIMONIALS ── */
 .testimonials { background: var(--bg2); }
@@ -685,14 +685,14 @@ section { position: relative; }
 .testimonials-intro-text { max-width: 480px; }
 .testimonials-intro-tag {
   flex-shrink: 0;
-  background: var(--teal-dim);
+  background: var(--#F8981D-dim);
   border: 1px solid rgba(0,161,154,0.3);
   border-radius: 12px;
   padding: 20px 28px;
   text-align: center;
 }
 
-.testimonials-intro-tag .big { font-family: 'Poppins', sans-serif; font-size: 2rem; font-weight: 800; color: var(--teal); }
+.testimonials-intro-tag .big { font-family: 'Poppins', sans-serif; font-size: 2rem; font-weight: 800; color: var(--#F8981D); }
 .testimonials-intro-tag .small { font-size: 0.8rem; color: var(--muted); margin-top: 4px; }
 
 .testi-grid {
@@ -721,8 +721,8 @@ section { position: relative; }
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--teal);
-  background: var(--teal-dim);
+  color: var(--#F8981D);
+  background: var(--#F8981D-dim);
   border-radius: 4px;
   padding: 3px 10px;
   margin-bottom: 16px;
@@ -777,7 +777,7 @@ section { position: relative; }
   position: absolute;
   top: 0; left: 0; right: 0;
   height: 4px;
-  background: linear-gradient(90deg, var(--teal), var(--orange));
+  background: linear-gradient(90deg, var(--#F8981D), var(--orange));
 }
 
 .buch-cover-title {
@@ -789,7 +789,7 @@ section { position: relative; }
   margin-bottom: 12px;
 }
 
-.buch-cover-title .line2 { color: var(--teal); display: block; }
+.buch-cover-title .line2 { color: var(--#F8981D); display: block; }
 .buch-cover-sub { font-size: 0.85rem; color: var(--muted); margin-bottom: 24px; }
 .buch-cover-author { font-size: 0.9rem; color: var(--light); font-weight: 500; }
 
@@ -814,7 +814,7 @@ section { position: relative; }
   font-family: 'Poppins', sans-serif;
   font-size: 1.4rem;
   font-weight: 800;
-  color: var(--teal);
+  color: var(--#F8981D);
   opacity: 0.5;
   line-height: 1;
   flex-shrink: 0;
@@ -857,8 +857,8 @@ section { position: relative; }
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--teal);
-  background: var(--teal-dim);
+  color: var(--#F8981D);
+  background: var(--#F8981D-dim);
   border: 1px solid rgba(0,161,154,0.3);
   border-radius: 4px;
   padding: 4px 12px;
@@ -892,7 +892,7 @@ section { position: relative; }
 }
 
 .lebt-story em {
-  color: var(--teal);
+  color: var(--#F8981D);
   font-style: italic;
   font-weight: 500;
 }
@@ -903,7 +903,7 @@ section { position: relative; }
   align-items: flex-start;
   padding: 14px 16px;
   background: rgba(0,161,154,0.05);
-  border-left: 3px solid var(--teal);
+  border-left: 3px solid var(--#F8981D);
   border-radius: 0 8px 8px 0;
   margin-top: auto;
 }
@@ -1029,7 +1029,7 @@ section { position: relative; }
   color: var(--light);
 }
 
-.cert strong { color: var(--teal); display: block; font-size: 0.8rem; margin-bottom: 2px; }
+.cert strong { color: var(--#F8981D); display: block; font-size: 0.8rem; margin-bottom: 2px; }
 
 .ueber-stations {
   display: flex;
@@ -1073,7 +1073,7 @@ section { position: relative; }
   margin-bottom: 16px;
 }
 
-.cta-title .accent { color: var(--teal); }
+.cta-title .accent { color: var(--#F8981D); }
 
 .cta-sub { font-size: 1rem; color: var(--light); max-width: 480px; line-height: 1.7; margin-bottom: 32px; }
 
@@ -1104,7 +1104,7 @@ section { position: relative; }
   justify-content: center;
 }
 
-.contact-item a { color: var(--teal); text-decoration: none; }
+.contact-item a { color: var(--#F8981D); text-decoration: none; }
 
 /* ── FOOTER ── */
 footer {
@@ -1119,7 +1119,7 @@ footer {
 }
 
 footer a { color: var(--muted); text-decoration: none; }
-footer a:hover { color: var(--teal); }
+footer a:hover { color: var(--#F8981D); }
 
 /* ── SCROLL REVEAL ── */
 .reveal {
@@ -1150,7 +1150,7 @@ footer a:hover { color: var(--teal); }
 
 <!-- NAV -->
 <nav>
-  <img src="https://agilconsultants.com/wp-content/uploads/2017/04/AC-logo-website2.png" alt="AgîlConsultants" style="height:40px;width:auto">
+  <img src="https://agilconsultants.com/wp-content/uploads/2017/04/AC-logo-website2.png" alt="AgîlConsultants" style="height:56px;width:auto">
   <ul class="nav-links">
     <li><a href="#ki-strategie">KI-Strategie</a></li>
     <li><a href="#problem">Das Problem</a></li>
@@ -1199,7 +1199,7 @@ footer a:hover { color: var(--teal); }
 </section>
 
 <!-- KI-STRATEGIE -->
-<section id="ki-strategie" style="padding:80px 20px;background:#111;border-top:1px solid #1a1a1a"><div style="max-width:860px;margin:0 auto"><div style="text-align:center;margin-bottom:52px"><div style="display:inline-block;background:#00a19a;color:#fff;font-size:11px;font-weight:700;letter-spacing:1.5px;padding:6px 14px;border-radius:20px;margin-bottom:16px;text-transform:uppercase">KI-Beratung</div><h2 style="font-size:clamp(26px,4vw,38px);font-weight:900;color:#fff;letter-spacing:-0.8px;line-height:1.2;margin-bottom:16px">KI-Strategie die in Deutschland wirklich funktioniert.</h2><p style="font-size:17px;color:#666;max-width:540px;margin:0 auto;line-height:1.65">Viele Unternehmen starten mit einer KI-Idee und stoppen an DSGVO, EU AI Act oder internem Widerstand. Ich zeige drei Wege die liefern.</p></div><div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;margin-bottom:48px"><div style="background:#1a1a1a;border-radius:12px;padding:28px 24px;border-top:3px solid #00a19a"><div style="font-size:26px;margin-bottom:12px">&#128065;</div><h3 style="font-size:17px;font-weight:800;color:#fff;margin-bottom:10px">Shadow AI.<br>Sichtbar gemacht.</h3><p style="font-size:14px;color:#666;line-height:1.7;margin-bottom:16px">Ihre Mitarbeiter nutzen bereits KI mit Firmendaten, unkontrolliert, ausserhalb jeder Compliance. Ich mache das sichtbar, bewerte das Risiko und ueberfuehre es in ein DSGVO-konformes Setup das Ihr Team wirklich nutzt.</p><div style="font-size:11px;color:#00a19a;font-weight:700;padding-top:12px;border-top:1px solid #2a2a2a">OAuth-Audit &middot; Sysmon &middot; KI-Inventar &middot; DSGVO-Check</div></div><div style="background:#1a1a1a;border-radius:12px;padding:28px 24px;border-top:3px solid #f7941d"><div style="font-size:26px;margin-bottom:12px">&#9889;</div><h3 style="font-size:17px;font-weight:800;color:#fff;margin-bottom:10px">Copilot.<br>Richtig eingefuehrt.</h3><p style="font-size:14px;color:#666;line-height:1.7;margin-bottom:16px">Microsoft 365 haben Sie bereits. Copilot laeuft, aber niemand verwendet es wirklich. Ich fuehre Copilot DSGVO-konform ein: mit sauberem Berechtigungskonzept, Betriebsrat-Einbindung und echter Adoption. Kein Lizenz-Friedhof.</p><div style="font-size:11px;color:#f7941d;font-weight:700;padding-top:12px;border-top:1px solid #2a2a2a">DPA-Check &middot; &sect;87 BetrVG &middot; DLP &middot; Adoption</div></div><div style="background:#1a1a1a;border-radius:12px;padding:28px 24px;border-top:3px solid #00a19a"><div style="font-size:26px;margin-bottom:12px">&#9878;</div><h3 style="font-size:17px;font-weight:800;color:#fff;margin-bottom:10px">EU AI Act.<br>Bevor er Sie trifft.</h3><p style="font-size:14px;color:#666;line-height:1.7;margin-bottom:16px">Ab August 2026 gelten verbindliche Pflichten fuer KI im HR, Vertrieb und Kundenbetreuung. Wer jetzt handelt hat einen Vorsprung. Ich pruefe welche Ihrer Systeme betroffen sind und was konkret zu tun ist.</p><div style="font-size:11px;color:#00a19a;font-weight:700;padding-top:12px;border-top:1px solid #2a2a2a">Art. 4 Schulung &middot; NIS2 &middot; KI-Inventar &middot; Roadmap</div></div></div><div style="background:#1a1a1a;border-radius:12px;padding:28px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px;border-left:3px solid #00a19a"><div style="flex:1;min-width:240px"><div style="display:flex;align-items:center;gap:10px;margin-bottom:10px"><div style="width:34px;height:34px;background:#00a19a;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px">&#128737;</div><div style="font-weight:800;font-size:15px;color:#fff">KI-Compliance Assistent</div></div><p style="font-size:14px;color:#666;line-height:1.65;margin:0">Fragen zu DSGVO, &sect;43e BRAO, NIS2 oder dem EU AI Act? Sofort beantworten - kostenlos, auf Basis verifizierter Primaerquellen.</p></div><div style="display:flex;flex-direction:column;gap:10px;flex-shrink:0"><a href="/ki-assistent.html" style="background:#00a19a;color:#fff;font-size:14px;font-weight:700;padding:13px 24px;border-radius:8px;text-decoration:none;text-align:center">Jetzt Fragen stellen &#8594;</a><a href="#kontakt" style="color:#00a19a;font-size:13px;font-weight:600;padding:10px 24px;border-radius:8px;text-decoration:none;text-align:center;border:1px solid #00a19a">Erstgespraech vereinbaren</a></div></div></div></section>
+<section id="ki-strategie" style="padding:80px 20px;background:#111;border-top:1px solid #1a1a1a"><div style="max-width:860px;margin:0 auto"><div style="text-align:center;margin-bottom:52px"><div style="display:inline-block;background:#F8981D;color:#fff;font-size:11px;font-weight:700;letter-spacing:1.5px;padding:6px 14px;border-radius:20px;margin-bottom:16px;text-transform:uppercase">KI-Beratung</div><h2 style="font-size:clamp(26px,4vw,38px);font-weight:900;color:#fff;letter-spacing:-0.8px;line-height:1.2;margin-bottom:16px">KI-Strategie die in Deutschland wirklich funktioniert.</h2><p style="font-size:17px;color:#666;max-width:540px;margin:0 auto;line-height:1.65">Viele Unternehmen starten mit einer KI-Idee und stoppen an DSGVO, EU AI Act oder internem Widerstand. Ich zeige drei Wege die liefern.</p></div><div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;margin-bottom:48px"><div style="background:#1a1a1a;border-radius:12px;padding:28px 24px;border-top:3px solid #F8981D"><div style="font-size:26px;margin-bottom:12px">&#128065;</div><h3 style="font-size:17px;font-weight:800;color:#fff;margin-bottom:10px">Shadow AI.<br>Sichtbar gemacht.</h3><p style="font-size:14px;color:#666;line-height:1.7;margin-bottom:16px">Ihre Mitarbeiter nutzen bereits KI mit Firmendaten, unkontrolliert, ausserhalb jeder Compliance. Ich mache das sichtbar, bewerte das Risiko und ueberfuehre es in ein DSGVO-konformes Setup das Ihr Team wirklich nutzt.</p><div style="font-size:11px;color:#F8981D;font-weight:700;padding-top:12px;border-top:1px solid #2a2a2a">OAuth-Audit &middot; Sysmon &middot; KI-Inventar &middot; DSGVO-Check</div></div><div style="background:#1a1a1a;border-radius:12px;padding:28px 24px;border-top:3px solid #f7941d"><div style="font-size:26px;margin-bottom:12px">&#9889;</div><h3 style="font-size:17px;font-weight:800;color:#fff;margin-bottom:10px">Copilot.<br>Richtig eingefuehrt.</h3><p style="font-size:14px;color:#666;line-height:1.7;margin-bottom:16px">Microsoft 365 haben Sie bereits. Copilot laeuft, aber niemand verwendet es wirklich. Ich fuehre Copilot DSGVO-konform ein: mit sauberem Berechtigungskonzept, Betriebsrat-Einbindung und echter Adoption. Kein Lizenz-Friedhof.</p><div style="font-size:11px;color:#f7941d;font-weight:700;padding-top:12px;border-top:1px solid #2a2a2a">DPA-Check &middot; &sect;87 BetrVG &middot; DLP &middot; Adoption</div></div><div style="background:#1a1a1a;border-radius:12px;padding:28px 24px;border-top:3px solid #F8981D"><div style="font-size:26px;margin-bottom:12px">&#9878;</div><h3 style="font-size:17px;font-weight:800;color:#fff;margin-bottom:10px">EU AI Act.<br>Bevor er Sie trifft.</h3><p style="font-size:14px;color:#666;line-height:1.7;margin-bottom:16px">Ab August 2026 gelten verbindliche Pflichten fuer KI im HR, Vertrieb und Kundenbetreuung. Wer jetzt handelt hat einen Vorsprung. Ich pruefe welche Ihrer Systeme betroffen sind und was konkret zu tun ist.</p><div style="font-size:11px;color:#F8981D;font-weight:700;padding-top:12px;border-top:1px solid #2a2a2a">Art. 4 Schulung &middot; NIS2 &middot; KI-Inventar &middot; Roadmap</div></div></div><div style="background:#1a1a1a;border-radius:12px;padding:28px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px;border-left:3px solid #F8981D"><div style="flex:1;min-width:240px"><div style="display:flex;align-items:center;gap:10px;margin-bottom:10px"><div style="width:34px;height:34px;background:#F8981D;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px">&#128737;</div><div style="font-weight:800;font-size:15px;color:#fff">KI-Compliance Assistent</div></div><p style="font-size:14px;color:#666;line-height:1.65;margin:0">Fragen zu DSGVO, &sect;43e BRAO, NIS2 oder dem EU AI Act? Sofort beantworten - kostenlos, auf Basis verifizierter Primaerquellen.</p></div><div style="display:flex;flex-direction:column;gap:10px;flex-shrink:0"><a href="/ki-assistent.html" style="background:#F8981D;color:#fff;font-size:14px;font-weight:700;padding:13px 24px;border-radius:8px;text-decoration:none;text-align:center">Jetzt Fragen stellen &#8594;</a><a href="#kontakt" style="color:#F8981D;font-size:13px;font-weight:600;padding:10px 24px;border-radius:8px;text-decoration:none;text-align:center;border:1px solid #F8981D">Erstgespraech vereinbaren</a></div></div></div></section>
 
 <!-- PROBLEM -->
 <section class="problem" id="problem">
@@ -1426,7 +1426,7 @@ footer a:hover { color: var(--teal); }
     <div style="display:grid;grid-template-columns:1fr auto;gap:48px;align-items:start;margin-bottom:72px;">
       <div class="reveal">
         <span class="section-label">AGILE DISRUPTION</span>
-        <h2 class="section-title">Er lehrt es.<br>Er lebt es.<br><span style="color:var(--teal)">Täglich.</span></h2>
+        <h2 class="section-title">Er lehrt es.<br>Er lebt es.<br><span style="color:var(--#F8981D)">Täglich.</span></h2>
         <p class="section-sub">Die meisten Berater zitieren Methoden aus Büchern. Christian Honl hat das Buch geschrieben — und wendet es live an. Diese Momente wurden beobachtet, nicht behauptet.</p>
       </div>
       <div class="buch-cover reveal" style="min-width:220px;max-width:240px;">
